@@ -1,42 +1,64 @@
-# Fake News Detection using Machine Learning
+# Fake News Detection
 
-A machine learning project that classifies news articles as **FAKE** or **REAL** using NLP techniques.
+A machine learning project that detects whether a news article is real or fake using Natural Language Processing (NLP) techniques.
+
+## Overview
+
+Fake news has become a major issue in the digital era. This project aims to build a machine learning model capable of analyzing news article text and classifying it as **Real** or **Fake**.
+
+The system uses text preprocessing and feature extraction techniques to convert news articles into numerical representations that a machine learning model can understand.
 
 ## Features
-- Classifies news articles as fake or real
-- Uses text preprocessing and cleaning
-- Uses TF-IDF vectorization
-- Trained with Logistic Regression
-- Displays prediction confidence
-- Includes a Streamlit web interface
+
+- Detects fake and real news articles
+- Text preprocessing and cleaning
+- Feature extraction using NLP techniques
+- Machine learning model for classification
+- Model evaluation and accuracy measurement
 
 ## Technologies Used
+
 - Python
-- Pandas
 - Scikit-learn
-- Streamlit
-- Joblib
+- Pandas
+- NumPy
+- Natural Language Processing (NLP)
 
-## Dataset
-This project uses the **Fake and Real News Dataset** from Kaggle.
+## Project Workflow
 
-## Project Structure
-fake-news-detection/
-- data/
-- models/
-- notebooks/
-- train.py
-- predict.py
-- app.py
-- requirements.txt
-- README.md
+1. Data collection
+2. Text preprocessing (cleaning, removing stopwords, tokenization)
+3. Feature extraction
+4. Model training
+5. Model evaluation
+6. Prediction of fake or real news
 
-## Model Performance
-- Accuracy: 98.6%
-- F1-score: 0.99
+## How to Run the Project
 
-## How to Run
+1. Clone the repository
 
-### 1. Install dependencies
-```bash
-pip install -r requirements.txt
+2. Install required libraries
+
+3. Run the notebook or Python script
+
+## Example
+
+Input:
+
+Output:
+
+or
+
+## Future Improvements
+
+- Use deep learning models (LSTM / Transformers)
+- Improve dataset size and quality
+- Build a web interface for real-time detection
+
+## Author
+
+Ali Jabak  
+Computer Science Student – Antonine University
+
+GitHub:  
+https://github.com/jabakali444-del
