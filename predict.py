@@ -1,35 +1,35 @@
 import joblib
-import re
-import string
+from utils import clean_text
+
 
 model = joblib.load("models/fake_news_model.pkl")
 vectorizer = joblib.load("models/vectorizer.pkl")
 
-def clean_text(text):
-    text = str(text).lower()
-    text = re.sub(r"http\S+|www\S+|https\S+", "", text)
-    text = re.sub(r"\d+", "", text)
-    text = text.translate(str.maketrans("", "", string.punctuation))
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
 
-title = input("Enter news title: ")
-text = input("Enter news text: ")
+def main():
+    title = input("Enter news title: ")
+    text = input("Enter news text: ")
 
-content = title + " " + text
-content = clean_text(content)
+    content = f"{title} {text}".strip()
 
-vector = vectorizer.transform([content])
+    if not content:
+        print("Please enter a title or text.")
+        return
 
-prediction = model.predict(vector)[0]
-probabilities = model.predict_proba(vector)[0]
+    cleaned = clean_text(content)
+    vector = vectorizer.transform([cleaned])
 
-classes = model.classes_
-confidence = max(probabilities) * 100
+    prediction = model.predict(vector)[0]
+    probabilities = model.predict_proba(vector)[0]
+    confidence = max(probabilities) * 100
 
-print("\nPrediction:", prediction)
-print("Confidence: {:.2f}%".format(confidence))
+    print("\nPrediction:", prediction)
+    print("Confidence: {:.2f}%".format(confidence))
 
-print("\nClass probabilities:")
-for label, prob in zip(classes, probabilities):
-    print(f"{label}: {prob * 100:.2f}%")
+    print("\nClass probabilities:")
+    for label, prob in zip(model.classes_, probabilities):
+        print(f"{label}: {prob * 100:.2f}%")
+
+
+if __name__ == "__main__":
+    main()
