@@ -1,64 +1,108 @@
-# Fake News Detection
+# Fake News Detection (Full Stack ML Project)
 
-A machine learning project that detects whether a news article is real or fake using Natural Language Processing (NLP) techniques.
+A full-stack machine learning project that classifies news articles as **FAKE** or **REAL** using NLP techniques, a FastAPI backend, and a Streamlit web application.
 
-## Overview
+---
 
-Fake news has become a major issue in the digital era. This project aims to build a machine learning model capable of analyzing news article text and classifying it as **Real** or **Fake**.
+## 🚀 Features
 
-The system uses text preprocessing and feature extraction techniques to convert news articles into numerical representations that a machine learning model can understand.
+* Fake vs Real news classification
+* Text preprocessing (cleaning, normalization)
+* TF-IDF vectorization
+* Logistic Regression model
+* FastAPI backend (REST API)
+* Streamlit interactive UI
+* Confidence score + probabilities
 
-## Features
+---
 
-- Detects fake and real news articles
-- Text preprocessing and cleaning
-- Feature extraction using NLP techniques
-- Machine learning model for classification
-- Model evaluation and accuracy measurement
+## 🧠 Technologies Used
 
-## Technologies Used
+* Python
+* Pandas
+* Scikit-learn
+* FastAPI
+* Streamlit
+* Joblib
+* Requests
 
-- Python
-- Scikit-learn
-- Pandas
-- NumPy
-- Natural Language Processing (NLP)
+---
 
-## Project Workflow
+## 🧱 Project Structure
 
-1. Data collection
-2. Text preprocessing (cleaning, removing stopwords, tokenization)
-3. Feature extraction
-4. Model training
-5. Model evaluation
-6. Prediction of fake or real news
+fake-news-detection/
 
-## How to Run the Project
+├── app.py
+├── api.py
+├── train.py
+├── predict.py
+├── utils.py
+├── requirements.txt
+├── README.md
 
-1. Clone the repository
+├── data/
+├── models/
 
-2. Install required libraries
+---
 
-3. Run the notebook or Python script
+## ⚙️ How to Run
 
-## Example
+### 1. Install dependencies
 
-Input:
+pip install -r requirements.txt
 
-Output:
+---
 
-or
+### 2. Run API
 
-## Future Improvements
+uvicorn api:app --reload
 
-- Use deep learning models (LSTM / Transformers)
-- Improve dataset size and quality
-- Build a web interface for real-time detection
+Open:
+http://127.0.0.1:8000/docs
 
-## Author
+---
 
-Ali Jabak  
-Computer Science Student – Antonine University
+### 3. Run Streamlit app
 
-GitHub:  
-https://github.com/jabakali444-del
+streamlit run app.py
+
+---
+
+## 📡 API Example
+
+POST /predict
+
+```json
+{
+  "title": "Government announces new plan",
+  "text": "Officials announced a new economic plan."
+}
+```
+
+---
+
+## 🧪 Example Output
+
+```json
+{
+  "prediction": "REAL",
+  "confidence": 94.26,
+  "probabilities": {
+    "FAKE": 5.74,
+    "REAL": 94.26
+  }
+}
+```
+
+---
+
+## 📸 Screenshots
+
+(Add screenshots here)
+
+---
+
+## 👨‍💻 Author
+
+Ali Jabak
+Computer Science Student | AI & Machine Learning
